@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+
+/* Remover margens e preenchimentos padrão */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Normalizar estilos para elementos de bloco */
+html, body, div, span,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+a, abbr, address,
+cite, code,
+del, dfn, em, img,
+ins, kbd, q, samp,
+small, strong, sub, sup,
+var, b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-family: 'Poppins', sans-serif;
+  vertical-align: baseline;
+}
+
+/* Normalizar elementos de lista */
+ul, ol {
+  list-style: none;
+}
+
+/* Estilização básica para elementos estruturais */
+article, aside, details, figcaption, figure,
+footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* Remover decoração padrão de links */
+a {
+  text-decoration: none;
+}
+
+/* Redefinir estilo de botões para garantir consistência */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Corrigir quebra de linha e espaçamento de texto */
+pre, code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Corrigir comportamento de elementos de formulário */
+input, textarea, select, button {
+  font: inherit;
+}
+
+/* Corrigir altura inconsistente em elementos de entrada */
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Corrigir problemas de fonte e legibilidade no Firefox */
+button, input, select, textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Manter o tamanho de fonte padrão para inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Remover a caixa de seleção do background */
+select::-ms-expand {
+  display: none;
+}
+
+/* Limpar estilo de foco no Firefox */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+html, body { height: 100%;}
+main{width: 100vw; height: 100vh;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
