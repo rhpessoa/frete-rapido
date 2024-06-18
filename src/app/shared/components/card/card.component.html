@@ -1,0 +1,21 @@
+<article class="card">
+  <header class="card__header">
+      <h1 class="card__title">{{ coinName }}</h1>
+  </header>
+
+  <section class="card__content">
+      <div class="card__price-section">
+          <span [ngClass]="getClassBasedOnPrice()" class="card__price">R${{ coinValue}}</span>
+      </div>
+      <div class="card__info-section">
+          <div class="card__info-block">
+              <span class="card__info-label">Variação (%)</span>
+              <span class="card__info-value">{{coinPctChange}}</span>
+          </div>
+          <div class="card__info-block">
+              <span class="card__info-label">Atualizado</span>
+              <time datetime="2024-06-17T19:03" class="card__info-value">{{coinLastUpdate}}</time>
+          </div>
+      </div>
+  </section>
+</article>
