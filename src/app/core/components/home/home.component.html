@@ -1,3 +1,5 @@
-<section style="display: flex; height: 87%; background-color: #EEEEEE;">
-    <h1>HOME</h1>
+<section style="display: flex; flex-direction: column; min-height: 87%; overflow-y: auto; width: 100%;">
+    <div *ngFor="let coin of coinsData">
+        <app-card style="display: flex; justify-content: center; margin-top: 2rem ; height: 50%; width: 100%;" [coinName]="coin.name" [coinValue]="coin.bid | formatBidValue"  [coinPctChange]="coin.pctChange" [coinLastUpdate]="coin.create_date | hourFormat"></app-card>
+    </div>
 </section>
