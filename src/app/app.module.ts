@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetCoinsValueService } from './shared/services/get-coins-value.service';
 import { FormatBidValuePipe } from './shared/pipes/formatBidValuePipe';
 import { FormatHourPipe } from './shared/pipes/formatDatePipe';
+import { LocalStorageService } from './shared/services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormatHourPipe } from './shared/pipes/formatDatePipe';
     HttpClientModule 
   ],
   providers: [
-    GetCoinsValueService 
+    GetCoinsValueService,
+    LocalStorageService,
   ],
   bootstrap: [AppComponent]
 })
