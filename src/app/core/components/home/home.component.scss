@@ -1,0 +1,26 @@
+.coins-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 87%;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.coins-list__item {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+}
+.coins-list__item :first-child{
+    margin-top: 2rem;
+}
+.coins-list__item :last-child{
+    margin-bottom: 2rem;
+}
+
+.coins-list__card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
