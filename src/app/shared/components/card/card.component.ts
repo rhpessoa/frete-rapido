@@ -15,13 +15,13 @@ export class CardComponent {
     const value = parseFloat(this.coinValue);
 
     if(value <= 1){
-      return 'card__price__red'
+      return 'card__price--red'
     }
     else if(value > 1 && value <= 5){
-      return 'card__price__green'
+      return 'card__price--green'
     }
     else{
-      return 'card__price__blue'
+      return 'card__price--blue'
     }
   }
 }
