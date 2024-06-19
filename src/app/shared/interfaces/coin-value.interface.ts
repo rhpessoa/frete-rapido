@@ -1,13 +1,13 @@
 export interface CoinValue {
-    code: string;
+    code?: string;
     name: string;
-    high: number;
-    low: number;
-    varBid: number;
+    high?: number;
+    low?: number;
+    varBid?: number;
     pctChange: number;
     bid: number;
-    ask: number;
-    timestamp: string;
+    ask?: number;
+    timestamp?: string;
     create_date: string;
   }
   
