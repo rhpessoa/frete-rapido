@@ -14,9 +14,9 @@ import { LoaderService } from '../../../shared/services/loader.service';
 export class HomeComponent implements OnInit, OnDestroy {
   coinsData: CoinValue[] = [];
   coins: string[] = ['CAD-BRL', 'ARS-BRL', 'GBP-BRL'];
-  private coinsDataSubscription!: Subscription;
-  private updateInterval!: any;
-  public localStorageCoin: any;
+  public coinsDataSubscription!: Subscription;
+  public updateInterval!: any;
+  public localStorageCoin: CoinValue[] | null = null;
   public needRefetch: boolean = false;
   public noDataFound: boolean = false;
   showLoader = false;
@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     
     this.fetchAndProcessCoinData();
     this.updateInterval = setInterval(() => {
-      this.localStorage.removeItem('allCoinsData')
       this.coinsData = [];
       this.showLoader = false;
       this.fetchAndProcessCoinData();
@@ -53,6 +52,7 @@ public fetchAndProcessCoinData(): void {
   this.loaderService.showLoader();
     this.checkNeedReFetch();
     if (this.needRefetch) {
+      this.localStorage.removeItem("allCoinsData")
         const coinRequests = this.coins.map(coin =>
             this.coinService.getCoinValue(coin, 1).pipe(
                 catchError(error => {
@@ -84,7 +84,7 @@ public fetchAndProcessCoinData(): void {
         });
     }
     else {
-      this.coinsData = this.localStorageCoin;
+      this.coinsData = this.localStorageCoin || [];
       this.processCoinsData();
       this.dealingWithLocalStorage();
       this.hideLoaderWithDelay(1000);
@@ -125,22 +125,21 @@ public handleReload(): void {
 }
 
 public checkNeedReFetch(): void {
-
-    this.localStorageCoin = this.localStorage.getItem('allCoinsData');
-    if(this.localStorageCoin === null){
-      this.needRefetch = true;
-    }
-    else if(this.localStorageCoin === "expired") {
-      this.needRefetch = true;
-    } 
-    else if (this.localStorageCoin) {
-      this.needRefetch = this.localStorageCoin.some((item: { isError: boolean;}) => item.isError === true);
-    }
-    else if(this.localStorageCoin.length !== this.coins.length){
-      this.needRefetch = true;
-    }
-    
+  const localStorageCoins = this.localStorage.getItem('allCoinsData');
+  if (localStorageCoins === null) {
+    this.needRefetch = true;
+    return;
   }
+  if (localStorageCoins.some((item: { isError: boolean }) => item.isError === true)) {
+    this.needRefetch = true;
+    return;
+  }
+  if (localStorageCoins.length !== this.coins.length) {
+    this.needRefetch = true;
+    return;
+  }
+  this.needRefetch = false;
+}
 
   public processCoinsData(): void {
     this.coinsData.forEach(coin => {
@@ -159,3 +158,6 @@ public checkNeedReFetch(): void {
     return coinName.split('/')[0].trim();
   }
 }
+
+
+
