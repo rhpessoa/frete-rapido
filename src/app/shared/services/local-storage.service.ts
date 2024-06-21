@@ -27,7 +27,7 @@ export class LocalStorageService {
     const expiration = new Date(item.expiration);
     if (expiration <= new Date()) {
       this.removeItem(key);
-      return null
+      return "expired"
     }
     return item.value;
   }
