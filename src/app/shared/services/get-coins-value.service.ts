@@ -8,8 +8,8 @@ import { CoinValue } from '../interfaces/coin-value.interface';
   providedIn: 'root'
 })
 export class GetCoinsValueService {
-  private baseUrl = 'https://economia.awesomeapi.com.br';
-  private coinsDataSubject = new Subject<CoinValue[]>();
+  public baseUrl = 'https://economia.awesomeapi.com.br';
+  public coinsDataSubject = new Subject<CoinValue[]>();
   coinsData$: Observable<CoinValue[]> = this.coinsDataSubject.asObservable();
 
   constructor(private http: HttpClient) {}
