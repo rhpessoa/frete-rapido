@@ -1,21 +1,38 @@
 <article class="card">
-  <header class="card__header">
-      <h1 class="card__title">{{ coinName }}</h1>
-  </header>
+    <header class="card__header">
+        <h1 class="card__title">{{ coinName }}</h1>
+    </header>
+    <div *ngIf="show" class="card__loader">
+        <app-loader/>
+    </div>
+    <ng-container *ngIf="coinError === false; else noDataTemplate">
+        <section *ngIf="!show" class="card__content">
+          
+            <div class="card__price-section">
+                <span [ngClass]="getClassBasedOnPrice()" class="card__price">R${{ coinValue}}</span>
+            </div>
+            <div class="card__info-section">
+                <div class="card__info-block">
+                    <span class="card__info-label">Variação (%)</span>
+                    <span class="card__info-value">{{coinPctChange}}</span>
+                </div>
+                <div class="card__info-block">
+                    <span class="card__info-label">Atualizado</span>
+                    <time datetime="2024-06-17T19:03" class="card__info-data">{{coinLastUpdate}}</time>
+                </div>
+            </div>
+        </section>
+    </ng-container>
 
-  <section class="card__content">
-      <div class="card__price-section">
-          <span [ngClass]="getClassBasedOnPrice()" class="card__price">R${{ coinValue}}</span>
-      </div>
-      <div class="card__info-section">
-          <div class="card__info-block">
-              <span class="card__info-label">Variação (%)</span>
-              <span class="card__info-value">{{coinPctChange}}</span>
-          </div>
-          <div class="card__info-block">
-              <span class="card__info-label">Atualizado</span>
-              <time datetime="2024-06-17T19:03" class="card__info-value">{{coinLastUpdate}}</time>
-          </div>
-      </div>
-  </section>
+    <ng-template  #noDataTemplate>
+        <section *ngIf="!show" class="card__content">
+            <div class="card__error">
+                <span class="card__error-text">Algo deu errado</span>
+                <div class="card__error-container">
+                    <button class="card__error-button" (click)="onReloadClick()">RECARREGAR</button>
+                </div>
+            </div>
+        </section>
+    </ng-template>
+
 </article>

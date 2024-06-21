@@ -23,6 +23,7 @@
   font-size: 1.875rem;
   color: #717171;
   font-weight: 600;
+  text-align: center;
 }
 
 .card__content {
@@ -82,8 +83,39 @@
   font-weight: 600;
 }
 
-.card__info-value {
+.card__info-value,
+.card__info-data {
   font-size: 1.5rem;
   color: #717171;
+  font-weight: 600;
+}
+
+.card__loader{
+  padding: 6rem;
+}
+
+.card__error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.card__error-text {
+  font-size: 1.625rem;
+  color: #717171;
+}
+
+.card__error-container {
+  margin-top: 2rem;
+  background-color: #F4F4F4; 
+  padding: 1.5rem; 
+  border-radius: 10px;
+}
+
+.card__error-button {
+  color: black;
+  font-size: 1.125rem;
   font-weight: 600;
 }
