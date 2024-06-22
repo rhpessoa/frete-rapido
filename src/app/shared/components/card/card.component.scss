@@ -119,3 +119,21 @@
   font-size: 1.125rem;
   font-weight: 600;
 }
+
+@media (width >= 1024px){
+  .card {
+    width: 80%;
+  }
+  .card__header{
+    padding: 2rem;
+  }
+  .card__price-section {
+    padding: 4rem 0;
+  }
+  .card__info-block {
+    padding: 1rem 0;
+  }
+  .card__error {
+    padding: 5.30rem 0;
+  }
+}
