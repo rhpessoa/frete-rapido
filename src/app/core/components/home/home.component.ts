@@ -5,6 +5,8 @@ import { GetCoinsValueService } from '../../../shared/services/get-coins-value.s
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LoaderService } from '../../../shared/services/loader.service';
+import { AlertService } from '../../../shared/services/alert.service';
+
 
 @Component({
   selector: 'app-home',
@@ -18,12 +20,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   public updateInterval!: any;
   public localStorageCoin: CoinValue[] | null = null;
   public needRefetch: boolean = false;
-  public noDataFound: boolean = false;
+  // public noDataFound: boolean = false;
   showLoader = false;
   constructor(
     private coinService: GetCoinsValueService,
     private localStorage: LocalStorageService,
     private loaderService: LoaderService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -57,12 +60,7 @@ public fetchAndProcessCoinData(): void {
             this.coinService.getCoinValue(coin, 1).pipe(
                 catchError(error => {
                     const errorToFetch = { isError: true, name: coin };
-                    if (error instanceof HttpErrorResponse) {
-                        console.error("Error occurred:", error.error);
-                        console.error("Status code:", error.status);
-                    } else {
-                        console.error("An unexpected error occurred:", error);
-                    }
+                    this.alertService.sendMessage("Houve um error ao atualizar os dados, Por favor tente novamente!");
                     return of([errorToFetch]);
                 })
             )
@@ -121,12 +119,13 @@ public checkAndRenameErroredCoins(): void {
 
 public handleReload(): void {
   this.showLoader = false;
+  this.coinsData = [];
   this.fetchAndProcessCoinData();
 }
 
 public checkNeedReFetch(): void {
   const localStorageCoins = this.localStorage.getItem('allCoinsData');
-  if (localStorageCoins === null) {
+  if (localStorageCoins === null || []) {
     this.needRefetch = true;
     return;
   }

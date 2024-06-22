@@ -11,7 +11,10 @@ import { FormatBidValuePipe } from './shared/pipes/formatBidValuePipe';
 import { FormatHourPipe } from './shared/pipes/formatDatePipe';
 import { LocalStorageService } from './shared/services/local-storage.service';
 import { LoaderService } from './shared/services/loader.service';
-import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
+import { AlertService } from './shared/services/alert.service';
+
 
 @NgModule({ declarations: [
         AppComponent,
@@ -21,12 +24,14 @@ import { LoaderComponent } from './shared/loader/loader.component';
         FormatBidValuePipe,
         FormatHourPipe,
         LoaderComponent,
+        AlertComponent,
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule], providers: [
         GetCoinsValueService,
         LocalStorageService,
         LoaderService,
+        AlertService,
         provideHttpClient(withInterceptorsFromDi()),
     ] })
 export class AppModule { }
