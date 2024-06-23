@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
 export class LocalStorageService {
-
   constructor() { }
-
   setItem(key: string, value: any): void {
     const now = new Date();
     const expiration = new Date(now.getTime() + 3 * 60000);
-    console.log(expiration)
     const item = {
       value: value,
       expiration: expiration.toISOString()

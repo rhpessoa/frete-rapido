@@ -3,7 +3,6 @@ import { CoinValue } from '../../../shared/interfaces/coin-value.interface'; // 
 import { Subscription, catchError, forkJoin, of } from 'rxjs';
 import { GetCoinsValueService } from '../../../shared/services/get-coins-value.service';
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { LoaderService } from '../../../shared/services/loader.service';
 import { AlertService } from '../../../shared/services/alert.service';
 
@@ -20,7 +19,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   public updateInterval!: any;
   public localStorageCoin: CoinValue[] | null = null;
   public needRefetch: boolean = false;
-  // public noDataFound: boolean = false;
   showLoader = false;
   constructor(
     private coinService: GetCoinsValueService,
@@ -76,8 +74,7 @@ public fetchAndProcessCoinData(): void {
                 this.checkAndRenameErroredCoins();
                 this.processCoinsData();
                 this.dealingWithLocalStorage();
-                this.hideLoaderWithDelay(1000);
-               
+                this.hideLoaderWithDelay(1000);         
             },
         });
     }

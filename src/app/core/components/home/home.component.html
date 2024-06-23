@@ -1,17 +1,14 @@
 <section class="coins-list">
-    <ng-container>
-      <div class="coins-list__item" *ngFor="let coin of coinsData">
-        <app-card class="coins-list__card" 
-                  [coinName]="coin.name!" 
-                  [coinValue]="coin.bid! | formatBidValue"  
-                  [coinPctChange]="coin.pctChange!" 
-                  [coinLastUpdate]="coin.create_date! | hourFormat"
-                  [coinError]="coin.isError" 
-                  [show]="showLoader"
-                  (reload)="handleReload()"
-                  >
-        </app-card>
-      </div>
-    </ng-container>
-  </section>
+  <div class="coins-list__item" *ngFor="let coin of coinsData">
+    <app-card class="coins-list__card" 
+      [coinName]="coin.name!" 
+      [coinValue]="coin.bid! | formatBidValue"  
+      [coinPctChange]="coin.pctChange!" 
+      [coinLastUpdate]="coin.create_date! | hourFormat"
+      [coinError]="coin.isError" 
+      [show]="showLoader"
+      (reload)="handleReload()">
+    </app-card>
+  </div>
+</section>
   

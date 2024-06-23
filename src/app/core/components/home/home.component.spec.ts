@@ -5,7 +5,6 @@ import { GetCoinsValueService } from '../../../shared/services/get-coins-value.s
 import { LocalStorageService } from '../../../shared/services/local-storage.service';
 import { LoaderService } from '../../../shared/services/loader.service';
 import { AlertService } from '../../../shared/services/alert.service';
-import { of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('HomeComponent', () => {

@@ -15,7 +15,6 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import { AlertService } from './shared/services/alert.service';
 
-
 @NgModule({ declarations: [
         AppComponent,
         HeaderComponent,

@@ -3,7 +3,6 @@ import { LoaderService } from './loader.service';
 
 describe('LoaderService', () => {
   let service: LoaderService;
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LoaderService]

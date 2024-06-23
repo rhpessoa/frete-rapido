@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoaderComponent } from './loader.component';
-import { BehaviorSubject } from 'rxjs';
 import { LoaderService } from '../../services/loader.service';
 
 describe('LoaderComponent', () => {
