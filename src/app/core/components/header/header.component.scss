@@ -1,10 +1,12 @@
+@import "../../../shared/variables.scss";
+
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 13%;
     height: 13%;
-    background-color: #FFFFFF;
+    background-color: $app-header-background
 }
 @media (width >= 1024px){
     .header{
