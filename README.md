@@ -41,10 +41,10 @@ Siga as instruções abaixo para obter uma cópia do projeto em operação na su
 
 Certifique-se de ter as seguintes versões dos pacotes instalados:
 
-- **Node.js**: v21.7.1 ou superior
-- **Angular CLI**: 18.0.4
-- **Docker**: 26.1.4
-- **nginx**: 1.26.1
+- **Node.js**: v22.3.0;
+- **Angular CLI**: 18.0.5;
+- **Docker**: 26.1.4;
+- **nginx**: 1.26.1.
 
 Para verificar se os pré-requisitos estão instalados corretamente, execute os comandos:
 
@@ -64,14 +64,14 @@ docker --version
 Baixe e instale o Node.js a partir do [site oficial](https://nodejs.org/en/download/package-manager). No exemplo abaixo, utilizaremos o Chocolatey, mas você pode usar o gerenciador de pacotes de sua preferência:
 
 ```
-choco install nodejs --version="21.7.3"
+choco install nodejs --version="22.3.0"
 ```
 2. **Instalando Angular CLI**
    
 Instale o Angular CLI globalmente:
 
 ```
-npm install -g @angular/cli@18.0.4
+npm install -g @angular/cli@18.0.5
 ```
 
 3. **Instalando dependências do projeto**
@@ -127,7 +127,7 @@ Este comando executará os testes unitários configurados no projeto e exibirá 
 
 ## 🛠️ Construído com
 
-* [Angular](https://angular.io) - Framework para desenvolvimento de aplicações web
-* [Node.js](https://nodejs.org) - Ambiente de execução JavaScript
-* [Docker](https://www.docker.com) - Plataforma para desenvolvimento, envio e execução de aplicações em containers
-* [nginx](https://www.nginx.com) - Servidor web e proxy reverso
+* [Angular](https://angular.io) - Framework para desenvolvimento de aplicações web;
+* [Node.js](https://nodejs.org) - Ambiente de execução JavaScript;
+* [Docker](https://www.docker.com) - Plataforma para desenvolvimento, envio e execução de aplicações em containers;
+* [nginx](https://www.nginx.com) - Servidor web e proxy reverso.
